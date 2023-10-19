@@ -1,7 +1,5 @@
-// Package declaration
 package com.example.cashcard;
 
-// Import statements
 import org.springframework.data.domain.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

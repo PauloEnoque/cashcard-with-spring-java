@@ -1,13 +1,10 @@
-// Package declaration
 package com.example.cashcard;
 
-// Import statements
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
-// Definition of the CashCardRepository interface
 public interface CashCardRepository
         // Extending CrudRepository to get basic CRUD operations for CashCard entities
         extends CrudRepository<CashCard, Long>,

@@ -1,10 +1,7 @@
-// Package declaration
 package com.example.cashcard;
 
-// Import statement
 import org.springframework.data.annotation.Id;
 
-// Definition of the CashCard record
 public record CashCard(
         // Annotation to indicate that this field is the primary key (ID) in the database
         @Id Long id,
