@@ -1,5 +1,6 @@
 package com.example.cashcard;
 
+import com.example.cashcard.Models.GiftCard;
 import org.assertj.core.util.Arrays;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,28 +10,26 @@ import org.springframework.boot.test.json.JacksonTester;
 
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.InstanceOfAssertFactories.ARRAY;
 
 @JsonTest
-public class CashCardJsonTest {
+public class GiftCardJsonTest {
 
     @Autowired
-    private JacksonTester<CashCard> json;
+    private JacksonTester<GiftCard> json;
 
     @Autowired
-    private JacksonTester<CashCard[]> jsonList;
+    private JacksonTester<GiftCard[]> jsonList;
 
-    private CashCard[] cashcards;
+    private GiftCard[] cashcards;
 
     @BeforeEach
     void setUp(){
         cashcards = Arrays.array(
-                new CashCard(99L, 123.45,"sarah1"),
-                new CashCard(100L, 1.00, "sarah1"),
-                new CashCard(101L, 150.00, "sarah1"));
+                new GiftCard(99L, 123.45,"sarah1"),
+                new GiftCard(100L, 1.00, "sarah1"),
+                new GiftCard(101L, 150.00, "sarah1"));
     }
 
     @Test
@@ -40,20 +39,20 @@ public class CashCardJsonTest {
 
     @Test
     public void cashCardSerializationTest() throws IOException{
-        CashCard cashCard = new CashCard(99L, 123.45, "sarah1");
+        GiftCard giftCard = new GiftCard(99L, 123.45, "sarah1");
 
 
-        assertThat(json.write(cashCard))
+        assertThat(json.write(giftCard))
                 .isStrictlyEqualToJson("single.json");
 
-        assertThat(json.write(cashCard)).hasJsonPathNumberValue("@.id");
+        assertThat(json.write(giftCard)).hasJsonPathNumberValue("@.id");
 
-        assertThat(json.write(cashCard)).extractingJsonPathNumberValue("@.id")
+        assertThat(json.write(giftCard)).extractingJsonPathNumberValue("@.id")
                 .isEqualTo(99);
 
-        assertThat(json.write(cashCard)).hasJsonPathNumberValue("@.amount");
+        assertThat(json.write(giftCard)).hasJsonPathNumberValue("@.amount");
 
-        assertThat(json.write(cashCard)).extractingJsonPathNumberValue("@.amount")
+        assertThat(json.write(giftCard)).extractingJsonPathNumberValue("@.amount")
                 .isEqualTo(123.45);
     }
 
@@ -84,7 +83,7 @@ public class CashCardJsonTest {
                 }
                 """;
         assertThat(json.parse(expected))
-                .isEqualTo(new CashCard(99L, 123.45, "sarah1"));
+                .isEqualTo(new GiftCard(99L, 123.45, "sarah1"));
         assertThat(json.parseObject(expected).id()).isEqualTo(99);
         assertThat(json.parseObject(expected).amount()).isEqualTo(123.45);
     }

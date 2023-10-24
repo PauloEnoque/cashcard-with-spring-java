@@ -1,4 +1,4 @@
-package com.example.cashcard;
+package com.example.cashcard.Security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +23,7 @@ public class SecurityConfig {
         http
                 // Sets authorization rules. Specifically, only users with the "CARD-OWNER" role can access "/cashcards/**"
                 .authorizeHttpRequests(request -> request
-                        .requestMatchers("/cashcards/**")
+                        .requestMatchers("/giftcards/**")
                         .hasRole("CARD-OWNER"))
                 // Disables Cross-Site Request Forgery (CSRF) checks for simplicity.
                 // Note: This is not recommended for production use as it opens up vulnerabilities.

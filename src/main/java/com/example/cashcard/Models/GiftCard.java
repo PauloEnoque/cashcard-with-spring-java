@@ -1,8 +1,8 @@
-package com.example.cashcard;
+package com.example.cashcard.Models;
 
 import org.springframework.data.annotation.Id;
 
-public record CashCard(
+public record GiftCard(
         // Annotation to indicate that this field is the primary key (ID) in the database
         @Id Long id,
         // Field to store the amount associated with the CashCard
